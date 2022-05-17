@@ -45,7 +45,7 @@ const Register = (props) => {
     <div className="main-box">
       <form onSubmit={submitForm}>
         <div className="row">
-          <div className="col-md-12 text-center"><h1>Register</h1></div>
+          <div className="col-md-12 text-center"><h1>Registeration</h1></div>
         </div>
 
 
@@ -90,7 +90,7 @@ const Register = (props) => {
         </div>
 
         <div className="row">
-          <div className="col-md-12 text-cener">
+          <div className="col-md-12 text-center">
             <input type="submit" name="submit" value="Register" className="btn btn-success" />
           </div>
         </div>
