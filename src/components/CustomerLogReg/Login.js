@@ -21,17 +21,18 @@ const Login = () => {
 
     }
 
-    console.log(sendData);
     axios.post('http://localhost:3300/login', sendData)
       .then((result) => {
-        if (result.data.Status === 'Invalid') {
-          alert('invalid User');
+        let d = result.data.auth;
+        let u = result.data.unp;
+        if (!d || u) {
+          alert('invalid Username or Password');
         }
         else {
           nav('/');
           alert("Login Successful");
         }
-      })
+       })
   }
 
   return (
@@ -42,18 +43,18 @@ const Login = () => {
         </div>
 
         <div className="row">
-          <div  className="col-md-6" >Customer Username</div>
+          <div className="col-md-6" >Customer Username</div>
           <div className="col-md-6">
-            <input  type="text" name="cust_name" className="form-control" 
-              onChange={handleChange} value={user.cust_name} required/>
+            <input type="text" name="cust_name" className="form-control"
+              onChange={handleChange} value={user.cust_name} required />
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-6">Customer Password</div>
           <div className="col-md-6">
-            <input type="text" name="cust_password" className="form-control" 
-              onChange={handleChange} value={user.cust_user} required/>
+            <input type="text" name="cust_password" className="form-control"
+              onChange={handleChange} value={user.cust_user} required />
           </div>
         </div>
 

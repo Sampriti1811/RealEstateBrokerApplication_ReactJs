@@ -33,11 +33,13 @@ const Register = (props) => {
     console.log(sendData);
     axios.post('http://localhost:3300/addcustomer', sendData)
       .then((result) => {
-        if (result.data.Status === 'Invalid'){
-          alert('invalid User');}
-        else{
+        if (result.data.Status === 'Invalid' || result.data.up) {
+          alert('Username already in use');
+        }
+        else {
           nav('/');
-          alert("Registration Successful");}
+          alert("Registration Successful");
+        }
       })
   }
 
