@@ -6,6 +6,7 @@ import Login from './components/CustomerLogReg/Login';
 import Home from './components/Home/Home';
 import BrLogin from './components/BrokerLogin/BrLogin';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import Property from './components/Property/Property';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/brokerlogin" element={<BrLogin/>}/>
+        <Route path="/property" element={<Property/>}/>
       </Routes>
     </div>
     </Router>
