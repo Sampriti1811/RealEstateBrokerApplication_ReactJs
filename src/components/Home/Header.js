@@ -8,6 +8,9 @@ const Header = () => {
         },
         span: {
             margin: "auto"
+        },
+        navlink:{
+            fontweight: "bold"
         }
     }
     return (
@@ -19,18 +22,26 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <Link to="/login" className="nav-link">〖Customer Login〗</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/register" className="nav-link">〖Customer Register〗</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/brokerlogin" className="nav-link">〖Broker Login〗</Link>
+                        <Link  to="/" className="nav-link">Home</Link>
                     </li>
                 </ul>
+
                 <span style={styles.span} className="navbar-text">
-                    Welcome!! Please Select Your Choice
+                    
                 </span>
+
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown Menu
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <Link class="dropdown-item" to="/login"  >Customer Login</Link>
+                        <Link class="dropdown-item" to="/register"  >Customer Register</Link>
+                        <Link class="dropdown-item" to="/brokerlogin"  >Broker Login</Link>
+                       
+                    </ul>
+                </div>
+
             </div>
         </nav>
     )
