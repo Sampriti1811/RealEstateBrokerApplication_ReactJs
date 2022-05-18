@@ -4,35 +4,25 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const Header = () => {
   var styles = {
     navbarbrand: {
-      fontweight: "bold",
+      fontWeight: "bold",
     },
     span: {
       margin: "auto",
     },
-    navlink: {
-      fontweight: "bold",
+    navLink: {
+      fontWeight: "bold",
     },
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg  navbar-light bg-light" >
       <strong style={styles.navbarbrand} className="navbar-brand">
         Navigation Bar
       </strong>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        {/* <span className="navbar-toggler-icon"></span> */}
-      </button>
+
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link to="/" className="nav-link">
+            <Link to="/" className="nav-link" style={styles.navLink}>
               Home
             </Link>
           </li>
@@ -44,7 +34,6 @@ const Header = () => {
           <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown Menu
           </button>
-          
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <Link class="dropdown-item" to="/login">
               Customer Login

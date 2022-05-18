@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../Home/Header'
 
 const Register = (props) => {
 
@@ -44,6 +45,8 @@ const Register = (props) => {
   }
 
   return (
+    <>
+    <Header/>
     <div className="main-box">
       <form onSubmit={submitForm}>
         <div className="row">
@@ -98,6 +101,7 @@ const Register = (props) => {
         </div>
       </form>
     </div>
+    </>
   )
 }
 

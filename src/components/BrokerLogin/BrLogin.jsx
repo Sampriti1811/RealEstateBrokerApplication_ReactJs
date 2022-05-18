@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Header from '../Home/Header';
 
 const BrLogin = () => {
   let nav = useNavigate();
@@ -36,6 +36,8 @@ const BrLogin = () => {
   }
 
   return (
+    <>
+    <Header/>
     <form onSubmit={submitForm}>
       <div className="main-box1">
         <div className="row">
@@ -64,6 +66,7 @@ const BrLogin = () => {
         </div>
       </div>
     </form>
+    </>
   )
 }
 
