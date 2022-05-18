@@ -3,10 +3,10 @@ import axios from 'axios'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BrLogin = () => {
+const Login = () => {
   let nav = useNavigate();
 
-  const [user, setUser] = useState({ br_username: '', br_password: '' })
+  const [user, setUser] = useState({ cust_name: '', cust_password: '' })
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -16,44 +16,43 @@ const BrLogin = () => {
   const submitForm = (e) => {
     e.preventDefault();
     const sendData = {
-      br_username: user.br_username,
-      br_password: user.br_password,
+      cust_name: user.cust_name,
+      cust_password: user.cust_password,
 
     }
 
-    console.log(sendData);
     axios.post('http://localhost:3300/login', sendData)
       .then((result) => {
-        if (result.data.Status === 'Invalid') {
-          alert('invalid User');
+        let d = result.data.auth;
+        let u = result.data.unp;
+        if (!d || u) {
+          alert('invalid Username or Password');
         }
         else {
           nav('/');
           alert("Login Successful");
         }
-      })
+       })
   }
 
   return (
     <form onSubmit={submitForm}>
       <div className="main-box1">
         <div className="row">
-          <div className="col-md-12 text-center"><h1>Broker Login</h1></div>
+          <div className="col-md-12 text-center"><h1>Login</h1></div>
         </div>
-
         <div className="row">
-          <div  className="col-md-6" >Broker Username</div>
+          <div className="col-md-6" >Customer Username</div>
           <div className="col-md-6">
-            <input  type="text" name="br_username" className="form-control" 
-              onChange={handleChange} value={user.br_username} required/>
+            <input type="text" name="cust_name" className="form-control"
+              onChange={handleChange} value={user.cust_name} required />
           </div>
         </div>
-
         <div className="row">
-          <div className="col-md-6">Broker Password</div>
+          <div className="col-md-6">Customer Password</div>
           <div className="col-md-6">
-            <input type="text" name="br_password" className="form-control" 
-              onChange={handleChange} value={user.br_user} required/>
+            <input type="text" name="cust_password" className="form-control"
+              onChange={handleChange} value={user.cust_user} required />
           </div>
         </div>
 
@@ -67,4 +66,4 @@ const BrLogin = () => {
   )
 }
 
-export default BrLogin;
+export default Login;
