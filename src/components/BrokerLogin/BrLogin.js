@@ -38,7 +38,7 @@ const BrLogin = () => {
     <form onSubmit={submitForm}>
       <div className="main-box1">
         <div className="row">
-          <div className="col-md-12 text-center"><h1>Login</h1></div>
+          <div className="col-md-12 text-center"><h1>Broker Login</h1></div>
         </div>
 
         <div className="row">
