@@ -7,7 +7,8 @@ import Home from './components/Home/Home';
 import BrLogin from './components/BrokerLogin/BrLogin';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Property from './components/Property/Property';
-import Customer from './components/Customer/Customer';
+import CustomerHome from './components/Customer/CustomerHome';
+import BrokerPopup from './components/BrokerPopup/BrokerPopup';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/brokerlogin" element={<BrLogin/>}/>
         <Route path="/property" element={<Property/>}/>
-        <Route path="/customer" element={<Customer/>}/>
+        <Route path="/customer" element={<CustomerHome/>}/>
+        <Route path="/popup" element={<BrokerPopup/>}/>
       </Routes>
     </div>
     </Router>
