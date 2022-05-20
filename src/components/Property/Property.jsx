@@ -1,26 +1,42 @@
-import React from 'react'
+import React from 'react';
+import Header from '../Home/Header';
 
 const Property = () => {
 
     var styles = {
         h1: {
+          fontSize:"50px",
           width: "1000px",
           position: "absolute",
           top: "27%",
-          left: "57%",
-          transform: "translate(-50%, -50%)"
-        },
-        img: {
-          position: "absolute",
-          right: "7%"
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontFamily: "'Serif'"
         }
+        
       }
   return (
+    <>
+    <Header/>
     <div class="container">
-    <img style={styles.img} src="https://jsmsikkim.com/images/11.png" />
-    <h1 class="center" style={styles.h1}>Property</h1>
+    
+    <h1 class="center" style={styles.h1}>Welcome to Property Section</h1>
   </div>
-//    <div>Property</div>
+  <div style={{
+          marginTop: "40px",
+          marginLeft: "250px",
+          backgroundColor: "#E9E9E9",
+          width: "800px",
+          height: "300px",
+          borderRadius: "25px",
+          border: "1px solid #BFBFBF",
+          backgroundColor: "white",
+          boxShadow: "10px 10px 5px #aaaaaa",
+        }}>
+          
+        </div>
+
+    </>
   )
 }
 

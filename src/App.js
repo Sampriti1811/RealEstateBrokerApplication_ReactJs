@@ -9,6 +9,7 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Property from './components/Property/Property';
 import CustomerHome from './components/Customer/CustomerHome';
 import BrokerPopup from './components/BrokerPopup/BrokerPopup';
+import Addproperty from './components/Property/Addproperty';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/property" element={<Property/>}/>
         <Route path="/customer" element={<CustomerHome/>}/>
         <Route path="/popup" element={<BrokerPopup/>}/>
+        <Route path="/addprop" element={<Addproperty/>}/>
       </Routes>
     </div>
     </Router>
