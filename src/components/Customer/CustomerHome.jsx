@@ -80,9 +80,9 @@ const Customer = () => {
         <MDBBtn style={{marginLeft:"10px"}} type="submit" color="dark">
           Search
         </MDBBtn>
-        <MDBBtn className="mx-2" color="warning" onClick={() => handleReset()}>
+        {/* <MDBBtn className="mx-2" color="warning" onClick={() => handleReset()}>
           Reset
-        </MDBBtn>
+        </MDBBtn> */}
       </form>
         
       <form
@@ -105,14 +105,16 @@ const Customer = () => {
         <MDBBtn style={{marginLeft:"10px"}} type="submit" color="dark">
           Search
         </MDBBtn>
-        <MDBBtn className="mx-2" color="warning" onClick={() => handleReset()}>
+        
+      </form>
+
+      <MDBBtn style={{position:"absolute",marginLeft:"550px",marginTop:"10px"}}  color="warning" onClick={() => handleReset()}>
           Reset
         </MDBBtn>
-      </form>
 
       <body>
         <div style={{ marginTop: "60px"}}>
-          <h2 className="text-center">Properties Available</h2>
+          <h2 >Real Estate Properties Available</h2>
           <MDBRow>
             <MDBCol size="12">
               <MDBTable>

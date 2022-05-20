@@ -61,7 +61,7 @@ const Register = (props) => {
           <form onSubmit={submitForm} style={{marginTop:"10px"}}>
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1>Registeration</h1>
+                <h1>Registration</h1>
               </div>
             </div>
 
