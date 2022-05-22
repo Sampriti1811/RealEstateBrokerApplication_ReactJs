@@ -26,8 +26,8 @@ const Login = () => {
       if (!d || u) {
         alert("Invalid Username or Password");
       } else {
-        nav("/customer");
         alert("Login Successful");
+        nav("/customer");
       }
     });
   };

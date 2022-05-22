@@ -27,8 +27,8 @@ const BrLogin = () => {
       if (!d || u) {
         alert("Invalid Username or Password");
       } else {
-        nav("/property");
         alert("Login Successful");
+        nav("/property");
       }
     });
   };

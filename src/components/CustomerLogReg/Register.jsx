@@ -35,8 +35,8 @@ const Register = (props) => {
       if (result.data.Status === "Invalid" || result.data.up) {
         alert("Username already in use");
       } else {
-        nav("/");
         alert("Registration Successful");
+        nav("/");
       }
     });
   };
