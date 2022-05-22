@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   MDBTable,
   MDBTableHead,
@@ -8,16 +8,17 @@ import {
   MDBRow,
   MDBCol,
   MDBContainer,
+  MDBBtn,
 } from "mdb-react-ui-kit";
 
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+
 import BrokerHeader from "../Broker/BrokerHeader";
 
-const Property = () => {
+const Deal = () => {
   let nav = useNavigate();
   const [data, setData] = useState([]);
-  //const [value, setValue] = useState("");
-  //const[val,setVal] = useState("");
+  //const[id,setId] = useState(0);
 
   useEffect(() => {
     loadUserData();
@@ -25,33 +26,23 @@ const Property = () => {
 
   const loadUserData = async () => {
     return await axios
-      .get("http://localhost:3300/allproperty")
+      .get("http://localhost:3300/alldeal")
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
   };
 
-  console.log("data", data);
-
+ 
   const del = async (id) => {
+    //e.preventDefault();
+    //console.log(id);
+    // console.log(id);
     return await axios
-      .delete(`http://localhost:3300/deleteproperty/${id}`)
+      .delete(`http://localhost:3300/deletedeal/${id}`)
       .then((response) => {
-        //setData(response.data);
-        alert("Property Deleted");
+        setData(response.data);
+        alert("Deal Deleted");
         window.location.reload(false);
-        nav("/property");
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const edit = async (id) => {
-    return await axios
-      .delete(`http://localhost:3300/deleteproperty/${id}`)
-      .then((response) => {
-        //setData(response.data);
-        //alert("Property Deleted");
-        //window.location.reload(false);
-        //nav("/property");
+        nav("/deal");
       })
       .catch((err) => console.log(err));
   };
@@ -62,27 +53,26 @@ const Property = () => {
       <MDBContainer>
         <body>
           <div style={{ marginTop: "60px" }}>
-            <h2 className="text-center">Properties Available</h2>
+            <h2 className="text-center">All Deals Pending</h2>
             <MDBRow>
               <MDBCol size="12">
                 <MDBTable>
                   <MDBTableHead dark>
                     <tr>
                       <th scope="col">Serial No.</th>
+                      <th scope="col">Customer ID</th>
                       <th scope="col">Property ID</th>
                       <th scope="col">Property Type</th>
                       <th scope="col">Price</th>
-                      <th scope="col">Offer</th>
                       <th scope="col">City</th>
-                      <th scope="col">Edit Property</th>
-                      <th scope="col">Delete Property</th>
+                      <th scope="col">Delete Deals</th>
                     </tr>
                   </MDBTableHead>
                   {data.length === 0 ? (
                     <MDBTableBody>
                       <tr>
                         <td colSpan={8} className="text-center mb-0">
-                          No Available Property
+                          No Available Deal
                         </td>
                       </tr>
                     </MDBTableBody>
@@ -91,23 +81,11 @@ const Property = () => {
                       <MDBTableBody key={index}>
                         <tr>
                           <th scope="row">{index + 1}</th>
+                          <td>{item.cust_id}</td>
                           <td>{item.prop_id}</td>
                           <td>{item.prop_type}</td>
                           <td>{item.price}</td>
-                          <td>{item.offer_type}</td>
                           <td>{item.city}</td>
-                          <td>
-                            <button
-                             onClick={() => edit(item.id)}
-                              type="button"
-                              className="btn btn-primary btn-rounded"
-                              data-mdb-ripple-color="dark"
-                            >
-                              <Link style={{ color: "white" }} to="/addprop">
-                                Edit
-                              </Link>
-                            </button>
-                          </td>
                           <td>
                             <button
                               onClick={() => del(item.id)}
@@ -115,9 +93,7 @@ const Property = () => {
                               className="btn btn-danger btn-rounded"
                               data-mdb-ripple-color="dark"
                             >
-                              <Link style={{ color: "white" }} to="/property">
-                                Delete
-                              </Link>
+                              Delete
                             </button>
                           </td>
                         </tr>
@@ -134,4 +110,4 @@ const Property = () => {
   );
 };
 
-export default Property;
+export default Deal;

@@ -34,6 +34,10 @@ const Customer = () => {
     loadUserData();
   };
 
+  const handleRefresh = () => {
+    window.location.reload(false);
+  }
+
   const handleSearch = async (e) => {
     e.preventDefault();
     return await axios
@@ -54,7 +58,16 @@ const Customer = () => {
         setVal("");
       })
       .catch((err) => console.log(err));
-  };
+    };
+
+  function deal(id){
+    //e.preventDefault();
+    console.log(id);
+    axios.post(`http://localhost:3300/deal/${id}`).then((result) => {
+    })
+  }
+
+  
 
   return (
     <MDBContainer>
@@ -111,6 +124,12 @@ const Customer = () => {
       <MDBBtn style={{position:"absolute",marginLeft:"550px",marginTop:"10px"}}  color="warning" onClick={() => handleReset()}>
           Reset
         </MDBBtn>
+        <MDBBtn style={{position:"absolute",marginLeft:"-8%",marginTop:"-6%"}}  color="secondary" onClick={() => handleRefresh()}>
+          Refresh
+        </MDBBtn>
+        <MDBBtn style={{position:"absolute",marginLeft:"-1%",marginTop:"-6%"}}  color="danger">
+          <Link to="/" style={{color:"white"}}>Log Out</Link>
+        </MDBBtn>
 
       <body>
         <div style={{ marginTop: "60px"}}>
@@ -148,8 +167,8 @@ const Customer = () => {
                         <td>{item.offer_type}</td>
                         <td>{item.city}</td>
                         <td>
-                          <button type="button"className="btn btn-dark btn-rounded" data-mdb-ripple-color="dark">
-                          <Link style={{color:"white"}} to="/popup">Deal</Link>
+                          <button onClick={() => deal(item.id)} type="button"className="btn btn-dark btn-rounded" data-mdb-ripple-color="dark">
+                          <Link to="/popup" style={{color:"white"}}>Deal</Link>
                           </button>
                         </td>
                       </tr>

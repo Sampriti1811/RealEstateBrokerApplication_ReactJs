@@ -5,8 +5,8 @@ const Home = () => {
 
   var styles = {
     h1: {
-      fontSize:"60px",
-      width: "1000px",
+      fontSize:"70px",
+      width: "100%",
       position: "absolute",
       top: "27%",
       left: "50%",
@@ -15,8 +15,8 @@ const Home = () => {
     },
       img: {
         position: "absolute",
-        right: "9.5%",
-        padding: "25px",
+        top:"15%",
+        left:"11%",
         backgroundRepeat: "norepeat",
         backgroundSize: "cover"
 
@@ -27,6 +27,7 @@ const Home = () => {
     <>
     <Header/>
     <div class="container">
+    {/*  eslint-disable-next-line  */}
       <img style={styles.img} src="https://jsmsikkim.com/images/11.png" />
       <h1  style={styles.h1} className="center" >Welcome to Real Estate Broker Application</h1>
     </div>

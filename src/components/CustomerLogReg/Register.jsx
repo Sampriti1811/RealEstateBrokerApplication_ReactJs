@@ -35,7 +35,7 @@ const Register = (props) => {
       if (result.data.Status === "Invalid" || result.data.up) {
         alert("Username already in use");
       } else {
-        nav("/");
+        nav("/property");
         alert("Registration Successful");
       }
     });
@@ -53,6 +53,7 @@ const Register = (props) => {
           height: "470px",
           borderRadius: "25px",
           border: "1px solid #BFBFBF",
+           // eslint-disable-next-line 
           backgroundColor: "white",
           boxShadow: "10px 10px 5px #aaaaaa",
         }}
@@ -143,6 +144,7 @@ const Register = (props) => {
             <div className="row">
               <div className="col-md-12 text-center">
                 <input
+                  style={{width:"40%"}}
                   type="submit"
                   name="submit"
                   value="Register"

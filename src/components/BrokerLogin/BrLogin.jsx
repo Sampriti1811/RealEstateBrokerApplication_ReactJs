@@ -23,7 +23,7 @@ const BrLogin = () => {
     console.log(sendData);
     axios.post("http://localhost:3300/brlogin", sendData).then((result) => {
       let d = result.data.auth;
-      let u = result.data.unp;
+      let u = result.data.bnp;
       if (!d || u) {
         alert("Invalid Username or Password");
       } else {
@@ -40,16 +40,17 @@ const BrLogin = () => {
         style={{
           marginTop: "40px",
           marginLeft: "250px",
-          backgroundColor: "#E9E9E9",
+          //backgroundColor: "#E9E9E9",
           width: "800px",
           height: "300px",
           borderRadius: "25px",
           border: "1px solid #BFBFBF",
+          // eslint-disable-next-line
           backgroundColor: "white",
           boxShadow: "10px 10px 5px #aaaaaa",
         }}
       >
-        <form onSubmit={submitForm} style={{marginTop:"10px"}}>
+        <form onSubmit={submitForm} style={{ marginTop: "10px" }}>
           <div className="main-box1">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -60,6 +61,7 @@ const BrLogin = () => {
               <div className="col-md-6">Broker Username</div>
               <div className="col-md-6">
                 <input
+                  style={{ width: "200px" }}
                   type="text"
                   name="br_username"
                   className="form-control"
@@ -74,6 +76,7 @@ const BrLogin = () => {
               <div className="col-md-6">Broker Password</div>
               <div className="col-md-6">
                 <input
+                  style={{ width: "200px" }}
                   type="text"
                   name="br_password"
                   className="form-control"
@@ -87,6 +90,7 @@ const BrLogin = () => {
             <div className="row">
               <div className="col-md-12 text-center">
                 <input
+                  style={{ width: "40%" }}
                   type="submit"
                   className="btn btn-success"
                   value="Login"

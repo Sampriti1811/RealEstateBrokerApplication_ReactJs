@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Header from "../Home/Header";
+import BrokerHeader from "../Broker/BrokerHeader";
 
 const Addproperty = (props) => {
   let nav = useNavigate();
@@ -31,28 +31,29 @@ const Addproperty = (props) => {
     };
 
     console.log(sendData);
-    axios.post("http://localhost:3300/addproperty", sendData).then((result) => {
+    axios.post("http://localhost:3300/insertproperty", sendData).then((result) => {
       if (result.data.Status === "Invalid" || result.data.up) {
         alert("Retry");
       } else {
         nav("/property");
-        alert("Property Added Successfully");
+        alert("Property Updated Successfully");
       }
     });
   };
 
   return (
     <>
-      <Header />
+      <BrokerHeader/>
       <div
         style={{
           marginTop: "40px",
           marginLeft: "250px",
-          backgroundColor: "#E9E9E9",
+          //backgroundColor: "#E9E9E9",
           width: "800px",
-          height: "470px",
+          height: "490px",
           borderRadius: "25px",
           border: "1px solid #BFBFBF",
+           // eslint-disable-next-line 
           backgroundColor: "white",
           boxShadow: "10px 10px 5px #aaaaaa",
         }}
@@ -61,7 +62,7 @@ const Addproperty = (props) => {
           <form onSubmit={submitForm} style={{marginTop:"10px"}}>
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1>Add Property Details Here</h1>
+                <h1>Update Property Details Here</h1>
               </div>
             </div>
 
@@ -143,10 +144,11 @@ const Addproperty = (props) => {
             <div className="row">
               <div className="col-md-12 text-center">
                 <input
+                 style={{ width: "40%" }}
                   type="submit"
                   name="submit"
-                  value="Add"
-                  className="btn btn-success"
+                  value="Update"
+                  className="btn btn-secondary"
                 />
               </div>
             </div>

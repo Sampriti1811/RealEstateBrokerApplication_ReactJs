@@ -1,15 +1,16 @@
 //import logo from './logo.svg';
 import './App.css';
-
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Register from './components/CustomerLogReg/Register';
 import Login from './components/CustomerLogReg/Login';
 import Home from './components/Home/Home';
 import BrLogin from './components/BrokerLogin/BrLogin';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Property from './components/Property/Property';
 import CustomerHome from './components/Customer/CustomerHome';
-import BrokerPopup from './components/BrokerPopup/BrokerPopup';
+import BrokerPopup from './components/Broker/BrokerPopup';
 import Addproperty from './components/Property/Addproperty';
+import Deal from './components/Deal/Deal';
+import ViewCustomer from './components/Customer/ViewCustomer';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/customer" element={<CustomerHome/>}/>
         <Route path="/popup" element={<BrokerPopup/>}/>
         <Route path="/addprop" element={<Addproperty/>}/>
+        <Route path="/deal" element={<Deal/>}/>
+        <Route path="/allcustomer" element={<ViewCustomer/>}/>
       </Routes>
     </div>
     </Router>

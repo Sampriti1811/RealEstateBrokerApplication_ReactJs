@@ -1,17 +1,23 @@
 import React from "react";
 import "./BrokerPopup.css";
 import { Link } from "react-router-dom";
+import confetti from "./confetti.mp4";
 
 const BrokerPopup = () => {
   return (
-    <div
-      style={{
-        marginLeft: "-120px",
-        backgroundColor: "#ddd",
-        width: "1535px",
-        height: "710px",
-      }}
+    <>
+    <video autoPlay loop muted
+    style={{ 
+      position: "absolute",
+      left:"25%",
+      width:"50%",
+      height:"100%",
+      objectFit:"cover"
+    }}
     >
+      <source src={confetti} type="video/mp4" />
+    </video>
+    <div className="brpop">
       <div className="popup center">
         <div className="icon">
           <i>
@@ -27,6 +33,7 @@ const BrokerPopup = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

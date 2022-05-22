@@ -1,3 +1,15 @@
+.brpop{
+    position: absolute;
+    top:0%;
+    left:0%;
+    height:100%;
+    width:100%;
+    /* background:#ddd; */
+    /* background : rgb(2,0,36);
+    background: radial-gradient(circle, rgba(9,72,121,1) 4%, rgba(87,6,128,0.7357494022999824) 45%, rgba(0,243,255,0.6937325955772935) 92%); */
+    /* background: rgb(127, 132, 133);
+background: radial-gradient(circle, rgb(188, 190, 192) 0%,rgba(231, 233, 234, 0.736) 45%, rgb(230, 230, 227) 100%); */
+}
 .center {
     position: absolute;
     top: 50%;
