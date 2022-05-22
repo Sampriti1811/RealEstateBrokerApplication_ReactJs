@@ -62,7 +62,7 @@ const Property = () => {
       <MDBContainer>
         <body>
           <div style={{ marginTop: "60px" }}>
-            <h2 className="text-center">Properties Available</h2>
+            <h2 className="text-center">All Properties Available</h2>
             <MDBRow>
               <MDBCol size="12">
                 <MDBTable>
