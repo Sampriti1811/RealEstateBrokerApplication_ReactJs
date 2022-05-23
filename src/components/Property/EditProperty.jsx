@@ -4,16 +4,24 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BrokerHeader from "../Broker/BrokerHeader";
 
-const Addproperty = (props) => {
+const EditProperty = () => {
   let nav = useNavigate();
-
   const [data, setData] = useState({
+    id: "",
     prop_id: "",
     prop_type: "",
     offer_type: "",
     city: "",
     price: "",
   });
+
+  // constructor(props) {
+  //     super(props);
+  //     this.state={
+  //         value:this.props.location.state,
+  //     }
+  //     //console.log(this.props.location.id);
+  // }
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -23,6 +31,7 @@ const Addproperty = (props) => {
   const submitForm = (e) => {
     e.preventDefault();
     const sendData = {
+      id: data.id,
       prop_id: data.prop_id,
       prop_type: data.prop_type,
       offer_type: data.offer_type,
@@ -31,38 +40,57 @@ const Addproperty = (props) => {
     };
 
     console.log(sendData);
-    axios.post("http://localhost:3300/insertproperty", sendData).then((result) => {
-      if (result.data.Status === "Invalid" || result.data.up) {
-        alert("Retry");
-      } else {
-        nav("/property");
-        alert("Property Added Successfully");
-      }
-    });
+    axios
+      .put("http://localhost:3300/updateproperty", sendData)
+      .then((result) => {
+        if (result.data.Status === "Invalid" || result.data.up) {
+          alert("Retry");
+        } else {
+          nav("/property");
+          alert("Property Updated Successfully");
+        }
+      });
   };
+
 
   return (
     <>
-      <BrokerHeader/>
+      <BrokerHeader />
       <div
         style={{
           marginTop: "40px",
           marginLeft: "250px",
           //backgroundColor: "#E9E9E9",
           width: "800px",
-          height: "490px",
+          height: "540px",
           borderRadius: "25px",
           border: "1px solid #BFBFBF",
-           // eslint-disable-next-line 
+          // eslint-disable-next-line
           backgroundColor: "white",
           boxShadow: "10px 10px 5px #aaaaaa",
         }}
       >
         <div className="main-box">
-          <form onSubmit={submitForm} style={{marginTop:"10px"}}>
+          <form onSubmit={submitForm} style={{ marginTop: "10px" }}>
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1>Add Property Details Here</h1>
+                <h1>Edit Property Details Here</h1>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-6">ID</div>
+              <div className="col-md-6">
+                <input
+                  style={{ width: "200px" }}
+                  type="text"
+                  name="id"
+                  placeholder="Enter ID from URL"
+                  className="form-control"
+                  onChange={handleChange}
+                  value={data.id}
+                  required
+                />
               </div>
             </div>
 
@@ -70,7 +98,7 @@ const Addproperty = (props) => {
               <div className="col-md-6">Property ID</div>
               <div className="col-md-6">
                 <input
-                style={{ width: "200px" }}
+                  style={{ width: "200px" }}
                   type="text"
                   name="prop_id"
                   className="form-control"
@@ -85,7 +113,7 @@ const Addproperty = (props) => {
               <div className="col-md-6">Property Type</div>
               <div className="col-md-6">
                 <input
-                style={{ width: "200px" }}
+                  style={{ width: "200px" }}
                   type="text"
                   name="prop_type"
                   className="form-control"
@@ -100,7 +128,7 @@ const Addproperty = (props) => {
               <div className="col-md-6">Offer Type</div>
               <div className="col-md-6">
                 <input
-                style={{ width: "200px" }}
+                  style={{ width: "200px" }}
                   type="text"
                   name="offer_type"
                   className="form-control"
@@ -115,7 +143,7 @@ const Addproperty = (props) => {
               <div className="col-md-6">City</div>
               <div className="col-md-6">
                 <input
-                style={{ width: "200px" }}
+                  style={{ width: "200px" }}
                   type="text"
                   name="city"
                   className="form-control"
@@ -130,7 +158,7 @@ const Addproperty = (props) => {
               <div className="col-md-6">Price</div>
               <div className="col-md-6">
                 <input
-                style={{ width: "200px" }}
+                  style={{ width: "200px" }}
                   type="text"
                   name="price"
                   className="form-control"
@@ -144,11 +172,11 @@ const Addproperty = (props) => {
             <div className="row">
               <div className="col-md-12 text-center">
                 <input
-                 style={{ width: "40%" }}
+                  style={{ width: "40%" }}
                   type="submit"
                   name="submit"
-                  value="Add"
-                  className="btn btn-secondary"
+                  value="Update"
+                  className="btn btn-primary"
                 />
               </div>
             </div>
@@ -159,4 +187,4 @@ const Addproperty = (props) => {
   );
 };
 
-export default Addproperty;
+export default EditProperty;

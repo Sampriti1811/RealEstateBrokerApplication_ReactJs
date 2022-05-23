@@ -11,6 +11,8 @@ import BrokerPopup from './components/Broker/BrokerPopup';
 import Addproperty from './components/Property/Addproperty';
 import Deal from './components/Deal/Deal';
 import ViewCustomer from './components/Customer/ViewCustomer';
+import EditProperty from './components/Property/EditProperty'
+
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/addprop" element={<Addproperty/>}/>
         <Route path="/deal" element={<Deal/>}/>
         <Route path="/allcustomer" element={<ViewCustomer/>}/>
+        <Route path="/editproperty/:id" element={<EditProperty/>}/>
+       
       </Routes>
     </div>
     </Router>

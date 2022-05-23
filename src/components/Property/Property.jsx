@@ -9,7 +9,6 @@ import {
   MDBCol,
   MDBContainer,
 } from "mdb-react-ui-kit";
-
 import { Link } from "react-router-dom";
 import BrokerHeader from "../Broker/BrokerHeader";
 
@@ -44,17 +43,13 @@ const Property = () => {
       .catch((err) => console.log(err));
   };
 
-  const edit = async (id) => {
-    return await axios
-      .delete(`http://localhost:3300/deleteproperty/${id}`)
-      .then((response) => {
-        //setData(response.data);
-        //alert("Property Deleted");
-        //window.location.reload(false);
-        //nav("/property");
-      })
-      .catch((err) => console.log(err));
-  };
+  // const edit = async (id) => {
+  //   return await axios
+  //     .delete(`http://localhost:3300/deleteproperty/${id}`)
+  //     .then((response) => {
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
@@ -97,9 +92,9 @@ const Property = () => {
                           <td>{item.offer_type}</td>
                           <td>{item.city}</td>
                           <td>
-                            <Link style={{ color: "white" }} to="/addprop">
+                            <Link style={{ color: "white" }} to={`/editproperty/${item.id}`}>
                               <button
-                                onClick={() => edit(item.id)}
+                                //onClick={() => edit(item.id)}
                                 type="button"
                                 className="btn btn-primary btn-rounded"
                                 data-mdb-ripple-color="dark"
