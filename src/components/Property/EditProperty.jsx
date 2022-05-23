@@ -47,7 +47,8 @@ const EditProperty = () => {
       });
   };
 
-  let { uid } = useParams();
+  let {id} = useParams();
+  console.log(id);
 
   return (
     <>
@@ -81,7 +82,7 @@ const EditProperty = () => {
                   style={{ width: "200px" }}
                   type="text"
                   name="id"
-                  placeholder={uid}
+                  placeholder={id}
                   className="form-control"
                   onChange={handleChange}
                   value={data.id}
