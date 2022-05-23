@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const Customer = () => {
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
-  const[val,setVal] = useState("");
+  const [val, setVal] = useState("");
 
   useEffect(() => {
     loadUserData();
@@ -36,7 +36,7 @@ const Customer = () => {
 
   const handleRefresh = () => {
     window.location.reload(false);
-  }
+  };
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ const Customer = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleSearchA = async(e) =>{
+  const handleSearchA = async (e) => {
     e.preventDefault();
     return await axios
       .get(`http://localhost:3300/propertyByType/${val}`)
@@ -58,23 +58,20 @@ const Customer = () => {
         setVal("");
       })
       .catch((err) => console.log(err));
-    };
+  };
 
-  function deal(id){
+  function deal(id) {
     //e.preventDefault();
     console.log(id);
-    axios.post(`http://localhost:3300/deal/${id}`).then((result) => {
-    })
+    axios.post(`http://localhost:3300/deal/${id}`).then((result) => {});
   }
-
-  
 
   return (
     <MDBContainer>
       <form
         style={{
           marginTop: "10px",
-          marginLeft:"436px",
+          marginLeft: "436px",
           padding: "5px",
           maxWidth: "400px",
           alignContent: "center",
@@ -89,15 +86,15 @@ const Customer = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-       
-        <MDBBtn style={{marginLeft:"10px"}} type="submit" color="dark">
+
+        <MDBBtn style={{ marginLeft: "10px" }} type="submit" color="dark">
           Search
         </MDBBtn>
         {/* <MDBBtn className="mx-2" color="warning" onClick={() => handleReset()}>
           Reset
         </MDBBtn> */}
       </form>
-        
+
       <form
         style={{
           margin: "auto",
@@ -115,25 +112,37 @@ const Customer = () => {
           value={val}
           onChange={(e) => setVal(e.target.value)}
         />
-        <MDBBtn style={{marginLeft:"10px"}} type="submit" color="dark">
+        <MDBBtn style={{ marginLeft: "10px" }} type="submit" color="dark">
           Search
         </MDBBtn>
-        
       </form>
 
-      <MDBBtn style={{position:"absolute",marginLeft:"550px",marginTop:"10px"}}  color="warning" onClick={() => handleReset()}>
-          Reset
+      <MDBBtn
+        style={{ position: "absolute", marginLeft: "550px", marginTop: "10px" }}
+        color="warning"
+        onClick={() => handleReset()}
+      >
+        Reset
+      </MDBBtn>
+      <MDBBtn
+        style={{ position: "absolute", marginLeft: "-8%", marginTop: "-6%" }}
+        color="secondary"
+        onClick={() => handleRefresh()}
+      >
+        Refresh
+      </MDBBtn>
+      <Link to="/" style={{ color: "white" }}>
+        <MDBBtn
+          style={{ position: "absolute", marginLeft: "-1%", marginTop: "-6%" }}
+          color="danger"
+        >
+          Log Out
         </MDBBtn>
-        <MDBBtn style={{position:"absolute",marginLeft:"-8%",marginTop:"-6%"}}  color="secondary" onClick={() => handleRefresh()}>
-          Refresh
-        </MDBBtn>
-        <MDBBtn style={{position:"absolute",marginLeft:"-1%",marginTop:"-6%"}}  color="danger">
-          <Link to="/" style={{color:"white"}}>Log Out</Link>
-        </MDBBtn>
+      </Link>
 
       <body>
-        <div style={{ marginTop: "60px"}}>
-          <h2 >Real Estate Properties Available</h2>
+        <div style={{ marginTop: "60px" }}>
+          <h2>Real Estate Properties Available</h2>
           <MDBRow>
             <MDBCol size="12">
               <MDBTable>
@@ -167,9 +176,16 @@ const Customer = () => {
                         <td>{item.offer_type}</td>
                         <td>{item.city}</td>
                         <td>
-                          <button onClick={() => deal(item.id)} type="button"className="btn btn-dark btn-rounded" data-mdb-ripple-color="dark">
-                          <Link to="/popup" style={{color:"white"}}>Deal</Link>
-                          </button>
+                          <Link to="/popup" style={{ color: "white" }}>
+                            <button
+                              onClick={() => deal(item.id)}
+                              type="button"
+                              className="btn btn-dark btn-rounded"
+                              data-mdb-ripple-color="dark"
+                            >
+                              Deal
+                            </button>
+                          </Link>
                         </td>
                       </tr>
                     </MDBTableBody>

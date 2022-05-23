@@ -97,28 +97,28 @@ const Property = () => {
                           <td>{item.offer_type}</td>
                           <td>{item.city}</td>
                           <td>
-                            <button
-                             onClick={() => edit(item.id)}
-                              type="button"
-                              className="btn btn-primary btn-rounded"
-                              data-mdb-ripple-color="dark"
-                            >
-                              <Link style={{ color: "white" }} to="/addprop">
+                            <Link style={{ color: "white" }} to="/addprop">
+                              <button
+                                onClick={() => edit(item.id)}
+                                type="button"
+                                className="btn btn-primary btn-rounded"
+                                data-mdb-ripple-color="dark"
+                              >
                                 Edit
-                              </Link>
-                            </button>
+                              </button>
+                            </Link>
                           </td>
                           <td>
-                            <button
-                              onClick={() => del(item.id)}
-                              type="button"
-                              className="btn btn-danger btn-rounded"
-                              data-mdb-ripple-color="dark"
-                            >
-                              <Link style={{ color: "white" }} to="/property">
+                            <Link style={{ color: "white" }} to="/property">
+                              <button
+                                onClick={() => del(item.id)}
+                                type="button"
+                                className="btn btn-danger btn-rounded"
+                                data-mdb-ripple-color="dark"
+                              >
                                 Delete
-                              </Link>
-                            </button>
+                              </button>
+                            </Link>
                           </td>
                         </tr>
                       </MDBTableBody>

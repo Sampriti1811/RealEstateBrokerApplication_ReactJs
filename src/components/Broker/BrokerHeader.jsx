@@ -1,13 +1,13 @@
 import React from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import "./styles.css";
 
 const Header = () => {
   var styles = {
     navbarbrand: {
-      marginTop:"-13px",
-      marginLeft:"20px",
-      fontSize:"40px"
+      marginTop: "-13px",
+      marginLeft: "20px",
+      fontSize: "40px",
     },
     span: {
       margin: "auto",
@@ -15,20 +15,22 @@ const Header = () => {
     navLink: {
       fontWeight: "bold",
     },
-    success:{
-      marginRight:"10px",
-    }
-    
+    success: {
+      marginRight: "10px",
+    },
   };
   return (
-    <nav style={{borderRadius:"25px"}}className="navbar navbar-expand-lg navbar-light bg-light" id="rcorner" >
+    <nav
+      style={{ borderRadius: "25px" }}
+      className="navbar navbar-expand-lg navbar-light bg-light"
+      id="rcorner"
+    >
       <div style={styles.navbarbrand} className="navbar-brand">
-      🧑🏻‍💼
+        🧑🏻‍💼
       </div>
 
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mr-auto">
-         
           <li className="nav-item active">
             <Link to="/addprop" className="nav-link" style={styles.navLink}>
               AddProperty
@@ -52,8 +54,14 @@ const Header = () => {
         </ul>
 
         <span style={styles.span} className="navbar-text"></span>
-        <button style={{marginRight:"2%"}}type="button" class="btn btn-danger btn-rounded">
-          <Link style={{color:"white"}} to="/">Logout</Link></button>
+        <Link style={{ color: "white",marginRight: "1%" }} to="/">
+          <button
+            type="button"
+            class="btn btn-danger btn-rounded"
+          >
+            Logout
+          </button>
+        </Link>
       </div>
     </nav>
   );
