@@ -26,7 +26,7 @@ const Header = () => {
       id="rcorner"
     >
       <div style={styles.navbarbrand} className="navbar-brand">
-        🧑🏻‍💼
+        📝
       </div>
 
       <div className="collapse navbar-collapse" id="navbarText">
@@ -54,11 +54,8 @@ const Header = () => {
         </ul>
 
         <span style={styles.span} className="navbar-text"></span>
-        <Link style={{ color: "white",marginRight: "1%" }} to="/">
-          <button
-            type="button"
-            class="btn btn-danger btn-rounded"
-          >
+        <Link style={{ color: "white", marginRight: "1%" }} to="/">
+          <button type="button" class="btn btn-danger btn-rounded">
             Logout
           </button>
         </Link>

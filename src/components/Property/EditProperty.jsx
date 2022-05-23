@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BrokerHeader from "../Broker/BrokerHeader";
+import {useParams} from "react-router-dom";
 
 const EditProperty = () => {
   let nav = useNavigate();
@@ -15,13 +16,7 @@ const EditProperty = () => {
     price: "",
   });
 
-  // constructor(props) {
-  //     super(props);
-  //     this.state={
-  //         value:this.props.location.state,
-  //     }
-  //     //console.log(this.props.location.id);
-  // }
+ 
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -52,6 +47,7 @@ const EditProperty = () => {
       });
   };
 
+  let { uid } = useParams();
 
   return (
     <>
@@ -85,7 +81,7 @@ const EditProperty = () => {
                   style={{ width: "200px" }}
                   type="text"
                   name="id"
-                  placeholder="Enter ID from URL"
+                  placeholder={uid}
                   className="form-control"
                   onChange={handleChange}
                   value={data.id}

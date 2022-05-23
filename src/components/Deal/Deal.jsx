@@ -72,7 +72,7 @@ const Deal = () => {
                     <MDBTableBody>
                       <tr>
                         <td colSpan={8} className="text-center mb-0">
-                          No Available Deal
+                          No Deal Available
                         </td>
                       </tr>
                     </MDBTableBody>
