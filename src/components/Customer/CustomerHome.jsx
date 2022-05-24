@@ -126,7 +126,7 @@ const Customer = () => {
       </MDBBtn>
       <MDBBtn
         style={{ position: "absolute", marginLeft: "-8%", marginTop: "-6%" }}
-        color="secondary"
+        color="light"
         onClick={() => handleRefresh()}
       >
         Refresh
